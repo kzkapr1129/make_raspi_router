@@ -1,0 +1,148 @@
+    1  sudo raspi-config
+    2  iptables
+    3  iptables -L
+    4  sudo iptables -L
+    5  sudo apt-get install chkconfig
+    6  chkconfig --list
+    7  sudo chkconfig bluetooth off
+    8  chkconfig --list
+    9  sudo chkconfig alsa-utils off
+   10  sudo chkconfig dphys-swapfile off
+   11  chkconfig --list
+   12  sudo chkconfig lightdm off
+   13  chkconfig --list
+   14  sudo chkconfig triggerhappy off
+   15  chkconfig --list
+   16  sudo chkconfig plymouth off
+   17  chkconfig --list
+   18  dpkg -L
+   19  sudo raspi-config
+   20  vi /etc/hosts
+   21  sudo vi /etc/hosts
+   22  sudo reboot
+   23  sudo apt-get update
+   24  sudo apt-get upgrade
+   25  sudo apt autoremove
+   26  sudo apt-get install dnsmasq hostapd
+   27  sudo systemctl stop dnsmasq
+   28  sudo systemctl stop hostapd
+   29  sudo vi /etc/dhcpcd.conf
+   30  ifconfig
+   31  sudo vi /etc/dhcpcd.conf
+   32  sudo service dhcpcd restart
+   33  ifconfig
+   34  sudo reboot
+   35  ifconfig
+   36  sudo service dhcpcd restart
+   37  ifconfig
+   38  sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.old
+   39  sudo vi /etc/dnsmasq.conf
+   40  cd /etc/
+   41  cd hostapd
+   42  ls
+   43  sudo vi hostapd.conf
+   44  sudo vi /etc/default/hostapd
+   45  sudo systemctl start hostapd
+   46  sudo systemctl start dnsmasq
+   47  sudo systemctl start hostapd
+   48  sudo systemctl unmask hostapd
+   49  sudo systemctl enable hostapd
+   50  sudo systemctl start hostapd
+   51  sudo vi /etc/sysctl.conf
+   52  sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+   53  sudo vi /etc/rc.local
+   54  sudo reboot
+   55  ifconfig
+   56  exit
+   57  cat /etc/hostapd/hostapd.conf
+   58  ifconfig
+   59  sudo vi /etc/default/hostapd 
+   60  cat /etc/hostapd/hostapd.conf
+   61  sudo vi /etc/dhcp/dhcpd.conf
+   62  sudo reboot
+   63  sudo vi /etc/dnsmasq.conf
+   64  sudo reboot
+   65  sudo systemctl start dnsmasq
+   66  sudo systemctl start hostapd
+   67  cat /etc/dnsmasq.conf
+   68  sudo modprobe ip_tables
+   69  cat /etc/rc.local 
+   70  sudo vi /etc/rc.local 
+   71  sudo iptables -L
+   72  sudo vi /etc/sysctl.conf
+   73  sudo vi /etc/default/hostapd
+   74  sudo rm /etc/hostapd/hostapd.conf 
+   75  sudo mv /etc/dnsmasq.conf.old /etc/dnsmasq.conf
+   76  cat /etc/dnsmasq.conf
+   77  sudo vi /etc/dhcpcd.conf
+   78  sudo apt remove dnsmasq hostapd
+   79  sudo reboot
+   80  sudo iptables -L
+   81  ping www.google.com
+   82  ifconfig
+   83  cd /boot
+   84  ls
+   85  sudo apt-get update
+   86  cd
+   87  sudo apt-get install dnsmasq
+   88  sudo systemctl stop dnsmasq
+   89  sudo vi /etc/sysctl.conf
+   90  sudo vi /etc/dhcpcd.conf 
+   91  sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
+   92  sudo vi /etc/dnsmasq.conf
+   93  sudo systemctl enable dnsmasq
+   94  sudo reboot
+   95  ifconfig
+   96  exit
+   97  ifconfig
+   98  iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+   99  sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+  100  cat /proc/sys/net/ipv4/ip_forward
+  101  sudo reboot
+  102  cat /proc/sys/net/ipv4/ip_forward
+  103  ping 172.217.24.132
+  104  sudo iptables -L
+  105  sudo sh -c iptables-save > /etc/iptables.ipv4.nat
+  106  iptables-save
+  107  sudo sh -c iptables-save
+  108  sudo sh -c iptables-save > /etc/iptables.ipv4.nat
+  109  sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+  110  sudo sh -c iptables-save
+  111  sudo sh -c iptables-save > iptables.ipv4.nat
+  112  ls /etc/
+  113  sudo sh -c iptables-save > /etc/iptables.ipv4.nat
+  114  ls /etc/iptables.ipv4.nat
+  115  sudo touch /etc/iptables.ipv4.nat
+  116  sudo sh -c iptables-save > /etc/iptables.ipv4.nat
+  117  ls /etc/iptables.ipv4.nat
+  118  ls -la /etc/iptables.ipv4.nat
+  119  sudo sh -c iptables-save > /etc/iptables.ipv4.nat
+  120  sudo rm /etc/iptables.ipv4.nat 
+  121  sudo sh -c iptables-save > /etc/iptables.ipv4.nat
+  122  sudo sh -c iptables-save
+  123  sudo sh -c iptables-save > /etc/iptables.ipv4.nat
+  124  su
+  125  sudo passwd root
+  126  su
+  127  sudo vi /etc/rc.local 
+  128  less /etc/sysctl.conf 
+  129  sudo reboot
+  130  ping www.google.com
+  131  sudo iptables -L
+  132  iptables-save
+  133  sudo sh -c iptables-save
+  134  sudo vi /etc/rc.local 
+  135  sudo reboot
+  136  sudo sh -c iptables-save
+  137  sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+  138  su
+  139  sudo vi /etc/rc.local 
+  140  sudo reboot
+  141  sudo sh -c iptables-save
+  142  ping www.google.com
+  143  ifconfig
+  144  sudo iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
+  145  sudo sh -c iptables-save
+  146  sudo sh -c iptables-save > /etc/iptables.ipv4.nat
+  147  su
+  148  history
