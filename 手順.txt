@@ -1,0 +1,60 @@
+- 概要
+eth0とPCを有線接続させ、wlan0、usb0(テザリング)をインターネットに接続している環境で
+eth0からwlan0、usb0を経由してインターネットに接続する
+
+1. SSHの有効か
+sudo raspi-config
+
+2. rootのパスワード変更
+sudo passwd root
+
+3. dnsmasq(DHCP機能)のインストール
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install dnsmasq
+
+4. 設定変更を行う前にdnsmasqを停止しておく
+sudo systemctl stop dnsmasq
+
+5. eth0を固定IP化
+sudo vi /etc/dhcpcd.conf
+    (shift+Gで最後尾に移動)
+    # 以下を追加する
+    interface eth0
+    static ip_address=192.168.1.1/24
+
+6. dnsmasq.confのオリジナルを退避しておく
+sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
+
+7. 新規dnsmasq.confを編集する
+sudo vi /etc/dnsmasq.conf
+# 以下を追加する(このコメントは含めない)
+interface=eth0
+    dhcp-range=192.168.1.2,192.168.1.250,255.255.255.0,24h
+
+8. ipフォワードを有効にする
+sudo vi /etc/sysctl.conf
+  #net.ipv4.ip_forward=1 をコメントアウトし net.ipv4.ip_forward=1　とする
+
+9. IPマスカレードを有効にする
+iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
+
+10. 次回起動時に今回設定したiptablesを読みこませる設定を追加する
+$ su
+# sh -c iptables-save > /etc/iptables.ipv4.nat
+# exit
+$ sudo vi /etc/rc.local
+  (”exit 0”の上に以下を追加する)
+  iptables-restore < /etc/iptables.ipv4.nat
+
+$ sudo reboot
+
+11. PCとラズパイのeth0を接続してインターネットに接続できるか確認
+(PC側で)
+$ ifconfig | grep 192.168.1
+    => DHCPで設定した範囲のアドレスが割り振られているか確認
+$ ping 192.168.1.1
+    => ラズパイと接続されているか確認
+$ ping www.google.com
+    => インターネットに接続できるかを確認
