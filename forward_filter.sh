@@ -34,7 +34,8 @@ sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 52.128.0.0-52
 sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 52.144.0.0-52.144.255.255 -j ACCEPT
 sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 52.192.0.0-52.223.255.255 -j ACCEPT
 sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 53.0.0.0-64.3.255.255 -j ACCEPT
-sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 64.4.64.0-66.119.143.255 -j ACCEPT
+sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 64.4.64.0-65.51.255.255 -j ACCEPT
+sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 65.56.0.0-66.119.143.255 -j ACCEPT
 sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 66.119.160.0-67.74.34.31 -j ACCEPT
 sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 67.74.34.64-67.75.2.159 -j ACCEPT
 sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 67.75.2.192-68.17.255.255 -j ACCEPT
@@ -60,7 +61,8 @@ sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 108.144.0.0-1
 sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 138.197.0.0-146.146.255.255 -j ACCEPT
 sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 146.148.0.0-150.170.255.255 -j ACCEPT
 sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 150.172.0.0-157.53.255.255 -j ACCEPT
-sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 157.61.0.0-204.13.119.255 -j ACCEPT
+sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 157.61.0.0-191.231.255.255 -j ACCEPT
+sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 191.236.0.0-204.13.119.255 -j ACCEPT
 sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 204.13.128.0-204.14.179.255 -j ACCEPT
 sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 204.14.184.0-204.152.17.255 -j ACCEPT
 sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 204.152.20.0-208.48.28.191 -j ACCEPT
@@ -69,4 +71,3 @@ sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 208.49.29.16-
 sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 208.76.48.0-208.83.255.255 -j ACCEPT
 sudo iptables -A FORWARD -p tcp --dport 443 -m iprange --dst-range 208.84.8.0-255.255.255.255 -j ACCEPT
 sudo iptables -A FORWARD -p tcp --sport 443 -j ACCEPT
-
